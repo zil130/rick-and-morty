@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import HeaderBlock from './components/HeaderBlock.vue';
-import CharacterCard from './components/CharacterCard.vue';
+import CharacterList from './components/CharacterList.vue';
 import './App.css';
 
 const characters = ref([]);
@@ -31,23 +31,11 @@ onMounted(fetchCharacters);
 
 <template>
   <HeaderBlock :count="count" />
-  <div class="cards">
-    <p v-if="error">{{ error }}</p>
-    <p v-if="isLoading">Loading...</p>
-    <CharacterCard
-      v-else
-      v-for="character in characters"
-      :character="character"
-      :key="character.id"
-    />
-  </div>
+  <CharacterList
+    :isLoading="isLoading"
+    :error="error"
+    :characters="characters"
+  />
 </template>
 
-<style>
-.cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-</style>
+<style></style>
