@@ -3,6 +3,7 @@ defineEmits(['apply-filters']);
 
 const name = defineModel('name');
 const status = defineModel('status');
+
 const props = defineProps({
   isLoading: Boolean,
   required: true,
@@ -51,5 +52,9 @@ const props = defineProps({
 .btn {
   padding: 5px 10px;
   cursor: pointer;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
 }
 </style>
