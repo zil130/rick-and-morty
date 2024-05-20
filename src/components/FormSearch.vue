@@ -38,6 +38,7 @@ const props = defineProps({
   display: flex;
   justify-content: center;
   gap: 15px;
+  flex-wrap: wrap;
 }
 
 .input {
@@ -56,5 +57,16 @@ const props = defineProps({
 
 .btn:disabled {
   cursor: not-allowed;
+}
+
+@media (max-width: 650px) {
+  .form {
+    padding: 15px;
+    flex-direction: column;
+  }
+
+  .btn {
+    align-self: flex-start;
+  }
 }
 </style>
